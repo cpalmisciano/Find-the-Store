@@ -17,6 +17,9 @@ namespace ConsoleApp1
 
             foreach (StoreTransactions st in all_stores)
             {
+                if (st == null || st.Transactions == null || st.Transactions.Count < max_ccns)
+                    continue;
+
                 count = st.Transactions.Select(x => x.CCN).Distinct().Count();
 
                 if (count > max_ccns)
